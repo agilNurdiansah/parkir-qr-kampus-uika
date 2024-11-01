@@ -27,7 +27,13 @@ class User extends Authenticatable implements JWTSubject
         'name',
         'password',
         'role',
+        'saldo',
     ];
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -73,8 +79,8 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-        public function access()
-    {
-        return $this->hasMany(UserAcces::class);
-    }
+    //     public function access()
+    // {
+    //     return $this->hasMany(UserAcces::class);
+    // }
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('password');
             $table->string('role');
+            $table->decimal('saldo', 10, 2)->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
