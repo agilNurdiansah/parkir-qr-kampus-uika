@@ -36,14 +36,11 @@ class PaymentController extends Controller
             ], 400);
         }
 
-          // Mulai transaksi
         DB::beginTransaction();
         try {
-            // Kurangi saldo pengguna
             $user->saldo -= $request->input('price');
             $user->save();
 
-            // Buat entri pembayaran baru
             $payment = Payment::create([
                 'invoice_number' => uniqid('INV-'),
                 'price' => $request->input('price'),
